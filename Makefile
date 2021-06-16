@@ -5,10 +5,10 @@ TAG ?= py39
 BUILD_DATE ?= $(shell date -u +'%Y-%m-%dT%H:%M:%SZ')
 BUILD_ARGS ?= --no-cache --build-arg BUILD_DATE=$(BUILD_DATE)
 IMAGE ?= horneds/muffin:$(TAG)
-TOKEN ?=
+PASSWORD ?=
 
 login:
-	echo $(TOKEN) | docker login -u horneds --password-stdin
+	echo $(PASSWORD) | docker login -u horneds --password-stdin
 
 build:
 	docker build $(BUILD_ARGS) \
@@ -55,5 +55,5 @@ docs:
 	    -v $(CURDIR):/data \
 	    -e DOCKERHUB_USERNAME=horneds \
 	    -e DOCKERHUB_REPO_NAME=muffin \
-	    -e DOCKERHUB_PASSWORD=$(TOKEN) \
+	    -e DOCKERHUB_PASSWORD=$(PASSWORD) \
 	    sheogorath/readme-to-dockerhub

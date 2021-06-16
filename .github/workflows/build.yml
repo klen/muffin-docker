@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        version: [py37, py38, py39, py37-node, py38-node, py39-node, latest]
+        version: [py37, py38, py39]
 
     steps:
 
@@ -25,7 +25,10 @@ jobs:
     - name: Login to docker hub
       run: make login TOKEN=${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Build and upload an image
+    - name: Build and upload basic image
       run: make upload TAG=${{ matrix.version }}
+
+    - name: Build and upload node image
+      run: make upload TAG=${{ matrix.version }}-node
 
 

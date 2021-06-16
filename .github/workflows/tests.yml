@@ -2,10 +2,7 @@ name: tests
 
 on:
   pull_request:
-    branches: [master, develop]
-
   push:
-    branches: [master, develop]
 
 jobs:
 
@@ -17,6 +14,7 @@ jobs:
         version: [py37, py38, py39]
 
     steps:
+
     - name: Checkout changes
       uses: actions/checkout@v2.3.4
 

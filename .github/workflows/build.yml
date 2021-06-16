@@ -1,0 +1,28 @@
+name: release
+
+on:
+  workflow_run:
+    workflows: [tests]
+    branches: [master]
+    types: [completed]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
+
+    strategy:
+      fail-fast: true
+      matrix:
+        version: [py37, py38, py39]
+
+    steps:
+
+    - name: Login to docker hub
+      run: make TOKEN=${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build and upload an image
+      run: make upload TAG=${{ matrix.version }}
+
+

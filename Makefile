@@ -4,11 +4,19 @@ all:
 TAG ?= py39
 BUILD_DATE ?= $(shell date -u +'%Y-%m-%dT%H:%M:%SZ')
 BUILD_ARGS ?= --no-cache --build-arg BUILD_DATE=$(BUILD_DATE)
+IMAGE ?= horneds/muffin:$(TAG)
+TOKEN ?=
+
+login:
+	echo $(TOKEN) | docker login -u horneds --password-stdin
 
 build:
 	docker build $(BUILD_ARGS) \
 		-f images/$(TAG).dockerfile \
-		-t muffin:$(TAG) $(CURDIR)
+		-t $(IMAGE) $(CURDIR)
+
+upload: build
+	docker push $(IMAGE)
 
 py37:
 	make build TAG=py37
@@ -29,13 +37,13 @@ py39-node:
 	make build TAG=py39-node
 
 bash: build
-	docker run -it muffin:$(TAG) bash
+	docker run -it $(IMAGE) bash
 
 run: build
-	docker run -it -p 8000:80 muffin:$(TAG)
+	docker run -it -p 8000:80 $(IMAGE)
 
 shell: build
-	docker run -it muffin:$(TAG) muffin app shell
+	docker run -it $(IMAGE) muffin app shell
 
 test t:
 	make py37 py38 py39 BUILD_ARGS=""

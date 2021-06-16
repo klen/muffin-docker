@@ -36,3 +36,8 @@ run: build
 
 shell: build
 	docker run -it muffin:$(TAG) muffin app shell
+
+test t:
+	make py37 py38 py39 BUILD_ARGS=""
+	pip install -r requirements.txt
+	pytest tests

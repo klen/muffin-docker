@@ -21,18 +21,15 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
 RUN /usr/local/bin/pip install --no-cache-dir wheel gunicorn uvicorn[standard] psycopg2-binary ipdb PyJwt muffin
 
 # Copy start script
-COPY ./start.sh /start.sh
+COPY ../start.sh /start.sh
 
 # Copy default application
+COPY ../app /app
 
 # Setup env
 WORKDIR /app
 EXPOSE 80
-HEALTHCHECK --interval=1m --timeout=5s --start-period=30s --retries=3 CMD curl -m 3 -f http://localhost || exit 1
-
-# Install python dependencies
-ONBUILD COPY requirements.txt /app/requirements.txt
-ONBUILD RUN /usr/local/bin/pip install -r /app/requirements.txt
+HEALTHCHECK --interval=1m --timeout=5s --start-period=30s --retries=3 CMD curl -f http://localhost || exit 1
 
 # Run cmd
 CMD ["/start.sh"]

@@ -1,0 +1,33 @@
+name: tests
+
+on:
+  pull_request:
+    branches: [master, develop]
+
+  push:
+    branches: [master, develop]
+
+jobs:
+
+  tests:
+    runs-on: ubuntu-latest
+    fail-fast: true
+    strategy:
+      matrix:
+        version: [py37, py38, py39]
+
+    steps:
+    - name: Checkout changes
+      uses: actions/checkout@v2.3.4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2.2.2
+
+    - name: Install requirements
+      run: pip install -r requirements.txt
+
+    - name: Build Image
+      run: make ${{ matrix.version }}
+
+    - name: Test with pytest
+      run: env/bin/pytest tests --pyversion ${{ matrix.version }}

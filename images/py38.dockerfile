@@ -21,7 +21,10 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
 RUN /usr/local/bin/pip install --no-cache-dir wheel gunicorn uvicorn[standard] psycopg2-binary ipdb PyJwt muffin
 
 # Copy start script
-COPY ./start.sh /start.sh
+COPY ../start.sh /start.sh
+
+# Copy default application
+COPY ../app /app
 
 # Setup env
 WORKDIR /app

@@ -1,4 +1,4 @@
-FROM muffin:py38
+FROM horneds/muffin:py38
 
 LABEL maintainer="Kirill Klenov <horneds@gmail.com>"
 

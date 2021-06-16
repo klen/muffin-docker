@@ -49,3 +49,11 @@ test t:
 	make py37 py38 py39 BUILD_ARGS=""
 	pip install -r requirements.txt
 	pytest tests
+
+docs:
+	docker run --rm \
+	    -v $(CURDIR):/data \
+	    -e DOCKERHUB_USERNAME=horneds \
+	    -e DOCKERHUB_REPO_NAME=muffin \
+	    -e DOCKERHUB_PASSWORD=$(TOKEN) \
+	    sheogorath/readme-to-dockerhub

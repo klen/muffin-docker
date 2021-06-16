@@ -1,0 +1,21 @@
+name: docs
+
+on:
+  workflow_run:
+    workflows: [tests]
+    branches: [master]
+    types: [completed]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
+
+    steps:
+
+    - name: Checkout changes
+      uses: actions/checkout@v2.3.4
+
+    - name: Upload README to docker hub
+      run: make docs TOKEN=${{ secrets.DOCKERHUB_TOKEN }}

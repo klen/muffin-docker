@@ -19,8 +19,11 @@ jobs:
 
     steps:
 
+    - name: Checkout changes
+      uses: actions/checkout@v2.3.4
+
     - name: Login to docker hub
-      run: make TOKEN=${{ secrets.DOCKERHUB_TOKEN }}
+      run: make login TOKEN=${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Build and upload an image
       run: make upload TAG=${{ matrix.version }}

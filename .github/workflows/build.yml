@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        version: [py37, py38, py39]
+        version: [py37, py38, py39, py37-node, py38-node, py39-node, latest]
 
     steps:
 

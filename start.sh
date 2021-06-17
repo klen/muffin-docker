@@ -7,10 +7,24 @@ elif [ -f /app/main.py ]; then
     DEFAULT_MODULE_NAME=main
 fi
 MODULE_NAME=${MODULE_NAME:-$DEFAULT_MODULE_NAME}
-VARIABLE_NAME=${VARIABLE_NAME:-app}
+VARIABLE_NAME=${VARIABLE_NAME:-"app"}
 
 export APP_MODULE=${APP_MODULE:-"$MODULE_NAME:$VARIABLE_NAME"}
-export WORKER_CLASS=${WORKER_CLASS:-"uvicorn.workers.UvicornWorker"}
+export SETUP_SCRIPT=${SETUP_SCRIPT:-"/app/setup.sh"}
+
+export GWORKER_CLASS=${GWORKER_CLASS:-"uvicorn.workers.UvicornWorker"}
+export GWORKERS=${GWORKERS:-`nproc --all`}
+export GBIND=${GBIND:-"0.0.0.0:80"}
+export GLOG_LEVEL=${GLOG_LEVEL:-"info"}
+
+# Check for 'setup.sh' script
+if [ -f $SETUP_SCRIPT ]; then
+    . $SETUP_SCRIPT
+fi
 
 echo "Start application"
-/usr/local/bin/gunicorn "$APP_MODULE" -k "$WORKER_CLASS" --bind=0.0.0.0:80 $GARGS
+/usr/local/bin/gunicorn "$APP_MODULE" \
+    --workers "$GWORKERS" \
+    --worker-class "$GWORKER_CLASS" \
+    --log-level "$GLOG_LEVEL" \
+    --bind="$GBIND" $GARGS

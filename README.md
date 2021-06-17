@@ -77,3 +77,31 @@ That will:
 * Copy your application requirements.
 * Install the dependencies.
 * Then copy your app code.
+
+## Advanced usage
+
+### Environment variables
+
+* **MODULE_NAME** (`app`, `main`) -- python module that contains Muffin
+  application
+
+* **VARIABLE_NAME** (`app`) -- The variable inside of the Python module that
+  contains the Muffin application
+
+* **SETUP_SCRIPT** -- Optional setup script to run before start gunicorn
+
+* **GWORKER_CLASS** (`uvicorn.workers.UvicornWorker`) -- Gunicorn Worker Class
+
+* **GWORKERS** (num of CPU) -- Number of gunicorn workers
+
+* **GBIND** (0.0.0.0:80) -- Address to bind the server inside the container
+
+* **GLOG_LEVEL** (info) -- Gunicorn log level
+
+* **GARGS** -- Optional Gunicorn command arguments
+
+## License
+
+This project is licensed under the terms of the MIT license.
+
+

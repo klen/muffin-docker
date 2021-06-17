@@ -99,7 +99,8 @@ That will:
 * **PORT** (`80`) -- Port to bind the server
 
 * **GBIND** (`0.0.0.0:80`) -- Address (host:port) to bind the server inside the
-  container. If choosen `$HOST`, `$PORT` will be ignored.
+  container. If the variable is set, the variables `$HOST`, `$PORT` will be
+  ignored.
 
 * **GLOG_LEVEL** (`info`) -- Gunicorn log level
 

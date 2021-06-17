@@ -14,6 +14,7 @@ build:
 	docker build $(BUILD_ARGS) \
 		-f images/$(TAG).dockerfile \
 		-t $(IMAGE) $(CURDIR)
+	docker tag $(IMAGE) horneds/muffin:latest
 
 upload: build
 	docker push $(IMAGE)

@@ -5,6 +5,8 @@
 
 # muffin-docker
 
+https://hub.docker.com/r/horneds/muffin
+
 [**Docker**](https://www.docker.com/) image with [**Muffin**](https://klen.github.io/muffin/) managed by [**Gunicorn**](https://gunicorn.org/)
 
 ## Supported tags

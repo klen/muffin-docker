@@ -92,11 +92,11 @@ That will:
 
 * **GWORKER_CLASS** (`uvicorn.workers.UvicornWorker`) -- Gunicorn Worker Class
 
-* **GWORKERS** (num of CPU) -- Number of gunicorn workers
+* **GWORKERS** (`num of CPU`) -- Number of gunicorn workers
 
-* **GBIND** (0.0.0.0:80) -- Address to bind the server inside the container
+* **GBIND** (`0.0.0.0:80`) -- Address to bind the server inside the container
 
-* **GLOG_LEVEL** (info) -- Gunicorn log level
+* **GLOG_LEVEL** (`info`) -- Gunicorn log level
 
 * **GARGS** -- Optional Gunicorn command arguments
 

@@ -84,8 +84,8 @@ That will:
 
 ### Environment variables
 
-* **MODULE_NAME** (`app`, `main`) -- python module that contains Muffin
-  application
+* **MODULE_NAME** (`app`, `main`, `app.app`, `app.main`) -- python module that
+  contains Muffin application
 
 * **VARIABLE_NAME** (`app`) -- The variable inside of the Python module that
   contains the Muffin application

@@ -94,7 +94,12 @@ That will:
 
 * **GWORKERS** (`num of CPU`) -- Number of gunicorn workers
 
-* **GBIND** (`0.0.0.0:80`) -- Address to bind the server inside the container
+* **HOST** (`0.0.0.0`) -- Host to bind the server
+
+* **PORT** (`80`) -- Port to bind the server
+
+* **GBIND** (`0.0.0.0:80`) -- Address (host:port) to bind the server inside the
+  container. If choosen `$HOST`, `$PORT` will be ignored.
 
 * **GLOG_LEVEL** (`info`) -- Gunicorn log level
 

@@ -24,8 +24,8 @@ RUN /usr/local/bin/pip install --no-cache-dir \
     uvicorn[standard]==0.14.0 \
     psycopg2-binary==2.9.1 \
     PyJWT==2.1.0 \
-    ipython==7.24.1 \
-    muffin==0.82.0
+    ipython==7.25.0 \
+    muffin==0.83.0
 
 # Copy start script
 COPY ./start.sh /start.sh

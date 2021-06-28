@@ -106,7 +106,7 @@ That will:
 
 * **GLOG_LEVEL** (`info`) -- Gunicorn log level
 
-* **GARGS** -- Optional Gunicorn command arguments
+* **GUNICORN_CMD_ARGS** -- Optional Gunicorn command arguments
 
 ## License
 

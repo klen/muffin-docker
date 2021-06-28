@@ -33,4 +33,4 @@ echo "Start application"
     --workers "$GWORKERS" \
     --worker-class "$GWORKER_CLASS" \
     --log-level "$GLOG_LEVEL" \
-    --bind="$GBIND" $GARGS
+    --bind="$GBIND"

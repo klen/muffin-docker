@@ -1,4 +1,6 @@
-FROM horneds/muffin:py39 as base
+ARG BASE_TAG=py39
+
+FROM horneds/muffin:$BASE_TAG as base
 
 LABEL maintainer="Kirill Klenov <horneds@gmail.com>"
 

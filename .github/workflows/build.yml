@@ -24,6 +24,7 @@ jobs:
           - tag: py37-node
             py-version: 3.7
             build-image: muffin-node
+            base-tag: py37
 
           - tag: py38
             py-version: 3.8
@@ -32,6 +33,7 @@ jobs:
           - tag: py38-node
             py-version: 3.8
             build-image: muffin-node
+            base-tag: py38
 
           - tag: py39
             py-version: 3.9
@@ -40,6 +42,7 @@ jobs:
           - tag: py39-node
             py-version: 3.9
             build-image: muffin-node
+            base-tag: py39
 
           - tag: latest
             py-version: 3.9
@@ -48,18 +51,18 @@ jobs:
           - tag: latest-node
             py-version: 3.9
             build-image: muffin-node
+            base-tag: py39
 
     steps:
 
     - name: Checkout changes
       uses: actions/checkout@v2.3.4
 
-    # - uses: satackey/action-docker-layer-caching@v0.0.11
-    #   continue-on-error: true
+    - uses: satackey/action-docker-layer-caching@v0.0.11
+      continue-on-error: true
 
     - name: Login to docker hub
       run: make login PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
 
     - name: Build and upload images
-      run: make upload TAG=${{ matrix.tag }} PY_VERSION=${{ matrix.py-version }} BUILD_IMAGE=${{ matrix.build-image }}
-
+      run: make upload TAG=${{ matrix.tag }} PY_VERSION=${{ matrix.py-version }} BUILD_IMAGE=${{ matrix.build-image }} BASE_TAG={{ matrix.base_tag }}

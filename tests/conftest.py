@@ -9,13 +9,13 @@ client = docker.from_env()
 
 
 def pytest_addoption(parser):
-    parser.addoption("--pyversion", default="py39", help="Python version")
+    parser.addoption("--tag", default="py39", help="Python version")
 
 
 def pytest_generate_tests(metafunc):
-    if "pyversion" in metafunc.fixturenames:
-        pyversion = metafunc.config.getoption("pyversion")
-        metafunc.parametrize("pyversion", [pyversion])
+    if "tag" in metafunc.fixturenames:
+        tag = metafunc.config.getoption("tag")
+        metafunc.parametrize("tag", [tag])
 
 
 @pytest.fixture

@@ -15,19 +15,51 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        version: [py37, py38, py39, latest]
+        include:
+
+          - tag: py37
+            py-version: 3.7
+            build-image: muffin
+
+          - tag: py37-node
+            py-version: 3.7
+            build-image: muffin-node
+
+          - tag: py38
+            py-version: 3.8
+            build-image: muffin
+
+          - tag: py38-node
+            py-version: 3.8
+            build-image: muffin-node
+
+          - tag: py39
+            py-version: 3.9
+            build-image: muffin
+
+          - tag: py39-node
+            py-version: 3.9
+            build-image: muffin-node
+
+          - tag: latest
+            py-version: 3.9
+            build-image: muffin
+
+          - tag: latest-node
+            py-version: 3.9
+            build-image: muffin-node
 
     steps:
 
     - name: Checkout changes
       uses: actions/checkout@v2.3.4
 
+    - uses: satackey/action-docker-layer-caching@v0.0.11
+      continue-on-error: true
+
     - name: Login to docker hub
       run: make login PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
 
-    - name: Build and upload basic image
-      run: make upload TAG=${{ matrix.version }}
-
-    - name: Build and upload node image
-      run: make upload TAG=${{ matrix.version }}-node
+    - name: Build and upload images
+      run: make upload TAG=${{ matrix.tag }} PY_VERSION=${{ matrix.py-version }} BUILD_IMAGE=${{ matrix.build-image }}
 

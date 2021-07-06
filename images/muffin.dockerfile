@@ -1,4 +1,6 @@
-FROM python:3.9-slim
+ARG PY_VERSION=3.9
+
+FROM python:$PY_VERSION-slim
 
 LABEL maintainer="Kirill Klenov <horneds@gmail.com>"
 
@@ -8,14 +10,11 @@ ARG BUILD_DATE
 LABEL org.label-schema.build-date=$BUILD_DATE
 LABEL org.label-schema.vcs-url="https://github.com/klen/muffin-docker"
 
-# Install system dependencies
+# Install dependencies
 RUN apt-get update && apt-get -y install --no-install-recommends \
-        build-essential \
         curl \
-        gnupg2 \
-        libncurses5-dev \
-        wget && \
-    rm -rf /var/lib/apt/lists/*
+        make \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install python dependencies
 COPY ./requirements-build.txt /requirements-build.txt

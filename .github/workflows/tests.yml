@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        version: [py37, py38, py39]
+        tag: [py37, py38, py39]
 
     steps:
 
@@ -24,8 +24,11 @@ jobs:
     - name: Install requirements
       run: pip install -r requirements.txt
 
+    - uses: satackey/action-docker-layer-caching@v0.0.11
+      continue-on-error: true
+
     - name: Build Image
-      run: make ${{ matrix.version }}
+      run: make ${{ matrix.tag }}
 
     - name: Test with pytest
-      run: pytest tests --pyversion ${{ matrix.version }}
+      run: pytest tests --tag ${{ matrix.tag }}

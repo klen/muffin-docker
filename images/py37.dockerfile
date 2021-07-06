@@ -18,14 +18,8 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
     rm -rf /var/lib/apt/lists/*
 
 # Install python dependencies
-RUN /usr/local/bin/pip install --no-cache-dir \
-    wheel==0.36.2 \
-    gunicorn==20.1.0 \
-    uvicorn[standard]==0.14.0 \
-    psycopg2-binary==2.9.1 \
-    PyJWT==2.1.0 \
-    ipython==7.25.0 \
-    muffin==0.83.0
+COPY ./requirements-build.txt /requirements-build.txt
+RUN /usr/local/bin/pip install --no-cache-dir -r /requirements-build.txt
 
 # Copy start script
 COPY ./start.sh /start.sh

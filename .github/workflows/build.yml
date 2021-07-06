@@ -54,8 +54,8 @@ jobs:
     - name: Checkout changes
       uses: actions/checkout@v2.3.4
 
-    - uses: satackey/action-docker-layer-caching@v0.0.11
-      continue-on-error: true
+    # - uses: satackey/action-docker-layer-caching@v0.0.11
+    #   continue-on-error: true
 
     - name: Login to docker hub
       run: make login PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}

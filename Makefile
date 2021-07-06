@@ -17,7 +17,6 @@ build:
 	docker build $(BUILD_ARGS) \
 		-f images/$(BUILD_IMAGE).dockerfile \
 		-t $(IMAGE) $(CURDIR)
-	docker tag $(IMAGE) horneds/muffin:latest
 
 upload: build
 	docker push $(IMAGE)
@@ -30,6 +29,7 @@ py38:
 
 py39:
 	make build TAG=py39 PY_VERSION=3.9
+	docker tag horneds/muffin:py39 horneds/muffin:latest
 
 py37-node:
 	make build TAG=py37-node PY_VERSION=3.7 BUILD_IMAGE=muffin-node

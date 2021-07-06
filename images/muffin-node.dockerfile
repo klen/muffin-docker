@@ -1,4 +1,4 @@
-FROM horneds/muffin:py39
+FROM horneds/muffin:py39 as base
 
 LABEL maintainer="Kirill Klenov <horneds@gmail.com>"
 
@@ -11,12 +11,16 @@ LABEL org.label-schema.vcs-url="https://github.com/klen/muffin-docker"
 ARG NODE_VERSION=14.17.3
 
 # Install nodejs
+FROM base as builder
+
 RUN apt-get update && \
-    apt-get -y install --no-install-recommends xz-utils curl && cd /opt && \
+    apt-get -y install xz-utils && \
     curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz -O && \
-    tar -xf node-v$NODE_VERSION-linux-x64.tar.xz && \
-    ln -s /opt/node-v$NODE_VERSION-linux-x64/bin/node /usr/local/bin/node && \
-    ln -s /opt/node-v$NODE_VERSION-linux-x64/bin/npm /usr/local/bin/npm && \
-    ln -s /opt/node-v$NODE_VERSION-linux-x64/bin/npx /usr/local/bin/npx && \
-    npm i -g npm@^7 && \
-    rm -rf /var/lib/apt/lists/*
+    tar -xf node-v$NODE_VERSION-linux-x64.tar.xz
+
+FROM base as deploy
+
+COPY --from=builder /app/node-v$NODE_VERSION-linux-x64 /opt/node
+RUN ln -s /opt/node/bin/node /usr/local/bin/node && \
+    ln -s /opt/node/bin/npm /usr/local/bin/npm && \
+    ln -s /opt/node/bin/npx /usr/local/bin/npx

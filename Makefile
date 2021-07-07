@@ -40,6 +40,7 @@ py38-node:
 
 py39-node:
 	make build TAG=py39-node BASE_TAG=py39 PY_VERSION=3.9 BUILD_IMAGE=muffin-node
+	docker tag horneds/muffin:py39-node horneds/muffin:latest-node
 
 bash: build
 	docker run -it $(IMAGE) bash

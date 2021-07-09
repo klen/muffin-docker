@@ -76,7 +76,7 @@ jobs:
       uses: archive/github-actions-slack@master
       with:
           slack-channel: C2CRL4C4V
-          slack-text: *[${{ github.repository }}]* build is success _(${{ github.ref }})_ https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          slack-text: "*[${{ github.repository }}]* build is success *(${{ github.ref }})* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_TOKEN }}
           slack-optional-as_user: false
           slack-optional-icon_emoji: ":white_check_mark:"

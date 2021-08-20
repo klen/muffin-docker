@@ -4,4 +4,4 @@ uvicorn[standard]   == 0.15.0
 psycopg2-binary     == 2.9.1
 PyJWT               == 2.1.0
 ipython             == 7.26.0
-muffin              == 0.84.3
+muffin              == 0.84.5

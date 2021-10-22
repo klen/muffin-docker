@@ -11,20 +11,24 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        tag: ['py37', 'py38', 'py39', 'py310']
+        tag:
+        - py37
+        - py38
+        - py39
+        # - py310
 
     steps:
 
     - name: Checkout changes
-      uses: actions/checkout@v2.3.4
+      uses: actions/checkout@main
 
     - name: Set up Python
-      uses: actions/setup-python@v2.2.2
+      uses: actions/setup-python@main
 
     - name: Install requirements
       run: pip install -r requirements.txt
 
-    - uses: satackey/action-docker-layer-caching@v0.0.11
+    - uses: satackey/action-docker-layer-caching@main
       continue-on-error: true
 
     - name: Build Image

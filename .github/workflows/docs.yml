@@ -15,7 +15,7 @@ jobs:
     steps:
 
     - name: Checkout changes
-      uses: actions/checkout@v2.3.4
+      uses: actions/checkout@main
 
     - name: Upload README to docker hub
       run: make docs PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}

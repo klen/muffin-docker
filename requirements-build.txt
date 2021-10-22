@@ -2,6 +2,6 @@ wheel               == 0.37.0
 gunicorn            == 20.1.0
 uvicorn[standard]   == 0.15.0
 psycopg2-binary     == 2.9.1
-PyJWT               == 2.1.0
-ipython             == 7.26.0
-muffin              == 0.84.5
+PyJWT               == 2.3.0
+ipython             == 7.28.0
+muffin              >= 0.86.0

@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 2021-11-12
+* muffin ``0.86.2``
+* psycopg2-binary ``2.9.2``
+
 ## 2021-11-02
 * ipython ``7.29.0``
 

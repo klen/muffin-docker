@@ -1,5 +1,12 @@
 # CHANGELOG.md
 
+## 2021-01-26
+
+- ipython `8.0.1`
+- psycopg2-binary `2.9.3`
+- uvicorn[standard] `0.17.0`
+- wheel `0.37.1`
+
 ## 2021-12-14
 
 - muffin `0.86.3`

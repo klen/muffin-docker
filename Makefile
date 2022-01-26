@@ -19,6 +19,9 @@ build:
 		-f images/$(BUILD_IMAGE).dockerfile \
 		-t $(IMAGE) $(CURDIR)
 
+build-node:
+	make build BUILD_IMAGE=muffin-node TAG=py39-node
+
 upload: build
 	docker push $(IMAGE)
 

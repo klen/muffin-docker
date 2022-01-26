@@ -13,7 +13,7 @@ LABEL org.label-schema.vcs-url="https://github.com/klen/muffin-docker"
 # Install nodejs
 FROM base as builder
 
-ARG NODE_VERSION=14.17.3
+ARG NODE_VERSION=16.13.2
 
 RUN apt-get update && \
     apt-get -y install xz-utils && \
@@ -22,9 +22,9 @@ RUN apt-get update && \
 
 FROM base as deploy
 
-ARG NODE_VERSION=14.17.3
+ARG NODE_VERSION=16.13.2
 
 COPY --from=builder /app/node-v$NODE_VERSION-linux-x64 /opt/node
-RUN ln -s /opt/node/bin/node /usr/local/bin/node && \
-    ln -s /opt/node/bin/npm /usr/local/bin/npm && \
-    ln -s /opt/node/bin/npx /usr/local/bin/npx
+RUN ln -sf /opt/node/bin/node /usr/local/bin/node && \
+    ln -sf /opt/node/bin/npm /usr/local/bin/npm && \
+    ln -sf /opt/node/bin/npx /usr/local/bin/npx

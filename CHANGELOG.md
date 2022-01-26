@@ -1,7 +1,7 @@
 # CHANGELOG.md
 
 ## 2021-01-26
-
+- node `16.3.2`
 - ipython `8.0.1`
 - psycopg2-binary `2.9.3`
 - uvicorn[standard] `0.17.0`

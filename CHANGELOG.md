@@ -1,5 +1,8 @@
 # CHANGELOG.md
 
+## 2021-02-07
+- uvicorn[standard] `0.17.4`
+
 ## 2021-01-26
 - node `16.3.2`
 - ipython `8.0.1`

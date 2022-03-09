@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 2021-03-09
+- uvicorn[standard] `0.17.5`
+- muffin `0.87.0`
+
 ## 2021-02-07
 - uvicorn[standard] `0.17.4`
 

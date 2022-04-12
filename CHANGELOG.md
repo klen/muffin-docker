@@ -1,6 +1,10 @@
 # CHANGELOG.md
 
 ## 2021-03-09
+- uvicorn[standard] `0.17.6`
+- ipython `8.0.2`
+
+## 2021-03-09
 - uvicorn[standard] `0.17.5`
 - muffin `0.87.0`
 

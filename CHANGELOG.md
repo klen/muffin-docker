@@ -1,5 +1,8 @@
 # CHANGELOG.md
 
+## 2021-05-06
+- ipython `8.0.3`
+
 ## 2021-03-09
 - uvicorn[standard] `0.17.6`
 - ipython `8.0.2`

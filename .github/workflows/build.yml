@@ -52,10 +52,10 @@ jobs:
             py-version: '3.10'
             build-image: muffin
 
-          # - tag: py310-node
-          #   py-version: '3.10'
-          #   build-image: muffin-node
-          #   base-tag: py310
+          - tag: py310-node
+            py-version: '3.10'
+            build-image: muffin-node
+            base-tag: py310
 
           - tag: latest
             py-version: '3.9'

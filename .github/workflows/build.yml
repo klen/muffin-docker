@@ -6,6 +6,10 @@ on:
     branches: [master]
     types: [completed]
 
+concurrency:
+  group: build-${{ github.event.workflow_run.head_branch  }}
+  cancel-in-progress: true
+
 jobs:
 
   build:

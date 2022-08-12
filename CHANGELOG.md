@@ -1,5 +1,8 @@
 # CHANGELOG.md
 
+## 2021-08-12
+- muffin `0.87.3`
+
 ## 2021-05-06
 - muffin `0.87.1`
 - ipython `8.0.3`

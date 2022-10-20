@@ -1,5 +1,8 @@
 # CHANGELOG.md
 
+## 2021-10-20
+- Remove ipython, psycopg2-binary from dependencies
+
 ## 2021-09-13
 - ipython `8.5.0`
 

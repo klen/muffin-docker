@@ -2,3 +2,5 @@ gunicorn            == 20.1.0
 muffin              >= 0.87.3
 uvicorn[standard]   == 0.18.3
 wheel               == 0.37.1
+
+asgi-tools          >= 0.64.2

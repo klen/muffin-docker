@@ -1,5 +1,8 @@
 # CHANGELOG.md
 
+## 2021-10-24
+- asgi-tools `0.64.2`
+
 ## 2021-10-20
 - Remove ipython, psycopg2-binary from dependencies
 

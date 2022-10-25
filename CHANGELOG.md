@@ -1,5 +1,8 @@
 # CHANGELOG.md
 
+## 2021-10-25
+- uvicorn[standard] `0.19.0`
+
 ## 2021-10-24
 - asgi-tools `0.64.2`
 

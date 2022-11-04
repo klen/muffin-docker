@@ -58,13 +58,13 @@ jobs:
             base-tag: py310
 
           - tag: latest
-            py-version: '3.9'
+            py-version: '3.10'
             build-image: muffin
 
           - tag: latest-node
-            py-version: '3.9'
+            py-version: '3.10'
             build-image: muffin-node
-            base-tag: py39
+            base-tag: py310
 
     steps:
 

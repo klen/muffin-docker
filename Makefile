@@ -1,9 +1,9 @@
 all:
 	make build
 
-TAG ?= py39
+TAG ?= py310
 BASE_TAG ?= $(TAG)
-PY_VERSION ?= 3.9
+PY_VERSION ?= 3.10
 BUILD_IMAGE ?= muffin
 BUILD_DATE ?= $(shell date -u +'%Y-%m-%dT%H:%M:%SZ')
 BUILD_CACHE ?= --no-cache

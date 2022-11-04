@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 2021-11-04
+- muffin:latest uses Python 3.10 by default
+- muffin:latest-node uses Node 16.18.0
+
 ## 2021-10-25
 - uvicorn[standard] `0.19.0`
 

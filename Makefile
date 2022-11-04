@@ -20,7 +20,7 @@ build:
 		-t $(IMAGE) $(CURDIR)
 
 build-node:
-	make build BUILD_IMAGE=muffin-node TAG=py39-node
+	make build BUILD_IMAGE=muffin-node TAG=py310-node
 
 upload: build
 	docker push $(IMAGE)
@@ -33,7 +33,6 @@ py38:
 
 py39:
 	make build TAG=py39 PY_VERSION=3.9
-	docker tag horneds/muffin:py39 horneds/muffin:latest
 
 py310:
 	make build TAG=py310 PY_VERSION=3.10
@@ -47,10 +46,10 @@ py38-node:
 
 py39-node:
 	make build TAG=py39-node BASE_TAG=py39 PY_VERSION=3.9 BUILD_IMAGE=muffin-node
-	docker tag horneds/muffin:py39-node horneds/muffin:latest-node
 
 py310-node:
 	make build TAG=py310-node BASE_TAG=py310 PY_VERSION=3.10 BUILD_IMAGE=muffin-node
+	docker tag horneds/muffin:py310-node horneds/muffin:latest-node
 
 bash: build
 	docker run -it $(IMAGE) bash
@@ -62,7 +61,7 @@ shell: build
 	docker run -it $(IMAGE) muffin app shell
 
 test t:
-	make py37 py38 py39 BUILD_ARGS=""
+	make py37 py38 py39 py310 BUILD_ARGS=""
 	pip install -r requirements.txt
 	pytest tests
 

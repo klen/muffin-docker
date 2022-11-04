@@ -1,15 +1,15 @@
 import time
 from contextlib import contextmanager
 
-import docker
 import pytest
 
+import docker
 
 client = docker.from_env()
 
 
 def pytest_addoption(parser):
-    parser.addoption("--tag", default="py39", help="Python version")
+    parser.addoption("--tag", default="py310", help="Python version")
 
 
 def pytest_generate_tests(metafunc):
@@ -20,11 +20,15 @@ def pytest_generate_tests(metafunc):
 
 @pytest.fixture
 def run():
-
     @contextmanager
     def run_container(
-            image, name='muffin-docker-test', ports={'80': '8000'},
-            detach=True, sleep=1, **kwargs):
+        image,
+        name="muffin-docker-test",
+        ports={"80": "8000"},
+        detach=True,
+        sleep=1,
+        **kwargs
+    ):
         try:
             previous = client.containers.get(name)
             previous.stop()
@@ -32,7 +36,9 @@ def run():
         except docker.errors.NotFound:
             pass
 
-        container = client.containers.run(image, name=name, ports=ports, detach=detach, **kwargs)
+        container = client.containers.run(
+            image, name=name, ports=ports, detach=detach, **kwargs
+        )
         time.sleep(sleep)
         yield container
 

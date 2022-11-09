@@ -1,40 +1,43 @@
 # CHANGELOG.md
 
-## 2021-11-04
+## 2022-11-09
+- wheel `0.38.2`
+
+## 2022-11-04
 - muffin:latest uses Python 3.10 by default
 - muffin:latest-node uses Node 16.18.0
 
-## 2021-10-25
+## 2022-10-25
 - uvicorn[standard] `0.19.0`
 
-## 2021-10-24
+## 2022-10-24
 - asgi-tools `0.64.2`
 
-## 2021-10-20
+## 2022-10-20
 - Remove ipython, psycopg2-binary from dependencies
 
-## 2021-09-13
+## 2022-09-13
 - ipython `8.5.0`
 
-## 2021-09-08
+## 2022-09-08
 - uvicorn[standard] `0.18.3`
 
-## 2021-08-12
+## 2022-08-12
 - muffin `0.87.3`
 
-## 2021-05-06
+## 2022-05-06
 - muffin `0.87.1`
 - ipython `8.0.3`
 
-## 2021-03-09
+## 2022-03-09
 - uvicorn[standard] `0.17.6`
 - ipython `8.0.2`
 
-## 2021-03-09
+## 2022-03-09
 - uvicorn[standard] `0.17.5`
 - muffin `0.87.0`
 
-## 2021-02-07
+## 2022-02-07
 - uvicorn[standard] `0.17.4`
 
 ## 2021-01-26

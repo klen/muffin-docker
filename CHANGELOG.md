@@ -1,7 +1,7 @@
 # CHANGELOG.md
 
-## 2022-11-09
-- wheel `0.38.3`
+## 2022-11-10
+- wheel `0.38.4`
 
 ## 2022-11-04
 - muffin:latest uses Python 3.10 by default

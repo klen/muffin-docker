@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 2022-12-27
+- muffin `0.88`
+- python 3.11 images
+
 ## 2022-11-22
 - uvicorn `0.20.0`
 

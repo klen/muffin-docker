@@ -38,6 +38,10 @@ py310:
 	make build TAG=py310 PY_VERSION=3.10
 	docker tag horneds/muffin:py310 horneds/muffin:latest
 
+py311:
+	make build TAG=py311 PY_VERSION=3.11
+	docker tag horneds/muffin:py311 horneds/muffin:latest
+
 py37-node:
 	make build TAG=py37-node BASE_TAG=py37 PY_VERSION=3.7 BUILD_IMAGE=muffin-node
 
@@ -50,6 +54,10 @@ py39-node:
 py310-node:
 	make build TAG=py310-node BASE_TAG=py310 PY_VERSION=3.10 BUILD_IMAGE=muffin-node
 	docker tag horneds/muffin:py310-node horneds/muffin:latest-node
+
+py311-node:
+	make build TAG=py311-node BASE_TAG=py311 PY_VERSION=3.11 BUILD_IMAGE=muffin-node
+	docker tag horneds/muffin:py311-node horneds/muffin:latest-node
 
 bash: build
 	docker run -it $(IMAGE) bash

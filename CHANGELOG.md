@@ -1,5 +1,8 @@
 # CHANGELOG.md
 
+## 2023-02-21
+- muffin `0.89`
+
 ## 2022-12-27
 - muffin `0.88`
 - python 3.11 images

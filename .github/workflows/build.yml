@@ -21,10 +21,6 @@ jobs:
       matrix:
         include:
 
-          - tag: py37
-            py-version: '3.7'
-            build-image: muffin
-
           - tag: py38
             py-version: '3.8'
             build-image: muffin
@@ -67,11 +63,6 @@ jobs:
       fail-fast: true
       matrix:
         include:
-
-          - tag: py37-node
-            py-version: '3.7'
-            build-image: muffin-node
-            base-tag: py37
 
           - tag: py38-node
             py-version: '3.8'

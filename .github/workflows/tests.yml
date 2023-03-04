@@ -12,7 +12,6 @@ jobs:
       fail-fast: true
       matrix:
         tag:
-        - py37
         - py38
         - py39
         - py310

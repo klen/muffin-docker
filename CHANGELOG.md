@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 2023-03-04
+- muffin `0.92`
+- remove python 3.7 support
+
 ## 2023-03-01
 - muffin `0.91`
 

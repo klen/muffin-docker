@@ -1,9 +1,9 @@
 # CHANGELOG.md
 
 ## 2023-03-16
-- muffin `0.94.4`
 - wheel `0.40.0`
-  uvicorn `0.21.0`
+- muffin `0.95.0`
+  uvicorn `0.21.1`
 
 ## 2023-03-04
 - muffin `0.92`

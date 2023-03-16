@@ -1,9 +1,10 @@
+from __future__ import annotations
+
 import time
 from contextlib import contextmanager
 
-import pytest
-
 import docker
+import pytest
 
 client = docker.from_env()
 
@@ -18,16 +19,17 @@ def pytest_generate_tests(metafunc):
         metafunc.parametrize("tag", [tag])
 
 
-@pytest.fixture
+@pytest.fixture()
 def run():
     @contextmanager
     def run_container(
         image,
         name="muffin-docker-test",
-        ports={"80": "8000"},
+        ports=None,
+        *,
         detach=True,
         sleep=1,
-        **kwargs
+        **kwargs,
     ):
         try:
             previous = client.containers.get(name)
@@ -37,7 +39,11 @@ def run():
             pass
 
         container = client.containers.run(
-            image, name=name, ports=ports, detach=detach, **kwargs
+            image,
+            name=name,
+            ports=ports or {"80": "8000"},
+            detach=detach,
+            **kwargs,
         )
         time.sleep(sleep)
         yield container
@@ -46,6 +52,3 @@ def run():
         container.remove()
 
     return run_container
-
-
-# pylama:ignore=D

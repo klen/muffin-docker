@@ -38,7 +38,7 @@ jobs:
             build-image: muffin
 
           - tag: latest
-            py-version: '3.10'
+            py-version: '3.11'
             build-image: muffin
 
     steps:
@@ -85,9 +85,9 @@ jobs:
             base-tag: py311
 
           - tag: latest-node
-            py-version: '3.10'
+            py-version: '3.11'
             build-image: muffin-node
-            base-tag: py310
+            base-tag: py311
 
     steps:
 

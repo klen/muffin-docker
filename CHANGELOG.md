@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 2023-05-01
+- muffin:latest uses Python 3.11 by default
+- muffin:latest-node uses Node 18.16.0
+
 ## 2023-03-16
 - wheel `0.40.0`
 - muffin `0.95.0`

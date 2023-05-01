@@ -22,7 +22,7 @@ RUN apt-get update && \
 
 FROM base as deploy
 
-ARG NODE_VERSION=16.18.0
+ARG NODE_VERSION=18.16.0
 
 COPY --from=builder /app/node-v$NODE_VERSION-linux-x64 /opt/node
 RUN ln -sf /opt/node/bin/node /usr/local/bin/node && \

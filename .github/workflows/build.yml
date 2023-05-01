@@ -46,6 +46,9 @@ jobs:
     - name: Checkout changes
       uses: actions/checkout@main
 
+    - uses: satackey/action-docker-layer-caching@main
+      continue-on-error: true
+
     - name: Login to docker hub
       run: make login PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
 
@@ -90,6 +93,9 @@ jobs:
 
     - name: Checkout changes
       uses: actions/checkout@main
+
+    - uses: satackey/action-docker-layer-caching@main
+      continue-on-error: true
 
     - name: Login to docker hub
       run: make login PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}

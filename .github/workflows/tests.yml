@@ -31,9 +31,6 @@ jobs:
     - name: Install requirements
       run: pip install -r requirements.txt
 
-    - uses: satackey/action-docker-layer-caching@main
-      continue-on-error: true
-
     - name: Build Image
       run: make ${{ matrix.tag }}
 

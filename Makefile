@@ -1,9 +1,9 @@
 all:
 	make build
 
-TAG ?= py310
+TAG ?= py311
 BASE_TAG ?= $(TAG)
-PY_VERSION ?= 3.10
+PY_VERSION ?= 3.11
 BUILD_IMAGE ?= muffin
 BUILD_DATE ?= $(shell date -u +'%Y-%m-%dT%H:%M:%SZ')
 BUILD_CACHE ?= --no-cache
@@ -20,7 +20,7 @@ build:
 		-t $(IMAGE) $(CURDIR)
 
 build-node:
-	make build BUILD_IMAGE=muffin-node TAG=py310-node
+	make build BUILD_IMAGE=muffin-node TAG=py311-node
 
 upload: build
 	docker push $(IMAGE)
@@ -50,6 +50,9 @@ py310-node:
 py311-node:
 	make build TAG=py311-node BASE_TAG=py311 PY_VERSION=3.11 BUILD_IMAGE=muffin-node
 	docker tag horneds/muffin:py311-node horneds/muffin:latest-node
+
+latest: py311
+latest-node: py311-node
 
 bash: build
 	docker run -it $(IMAGE) bash

@@ -1,4 +1,4 @@
-ARG BASE_TAG=py310
+ARG BASE_TAG=py311
 
 FROM horneds/muffin:$BASE_TAG as base
 
@@ -13,7 +13,7 @@ LABEL org.label-schema.vcs-url="https://github.com/klen/muffin-docker"
 # Install nodejs
 FROM base as builder
 
-ARG NODE_VERSION=16.18.0
+ARG NODE_VERSION=18.16.0
 
 RUN apt-get update && \
     apt-get -y install xz-utils && \

@@ -1,6 +1,6 @@
-ARG PY_VERSION=py311
+ARG TAG=py311
 
-FROM horneds/muffin:$PY_VERSION as base
+FROM horneds/muffin:$TAG as base
 
 LABEL maintainer="Kirill Klenov <horneds@gmail.com>"
 

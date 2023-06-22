@@ -57,22 +57,12 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        include:
-
-          - tag: py38
-            py-version: '3.8'
-
-          - tag: py39
-            py-version: '3.9'
-
-          - tag: py310
-            py-version: '3.10'
-
-          - tag: py311
-            py-version: '3.11'
-
-          - tag: latest-node
-            py-version: '3.11'
+        tag:
+        - py38
+        - py39
+        - py310
+        - py311
+        - latest
 
     steps:
 
@@ -86,7 +76,7 @@ jobs:
       run: make login PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
 
     - name: Build and upload images
-      run: make upload BUILD_IMAGE=muffin-node TAG=${{ matrix.tag }} PY_VERSION=${{ matrix.py-version }}
+      run: make upload BUILD_IMAGE=muffin-node TAG=${{ matrix.tag }}
 
   notify:
     runs-on: ubuntu-latest

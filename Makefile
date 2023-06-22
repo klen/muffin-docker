@@ -1,26 +1,25 @@
 all:
 	make build
 
-TAG ?= py311
-BASE_TAG ?= $(TAG)
-PY_VERSION ?= 3.11
-BUILD_IMAGE ?= muffin
-BUILD_DATE ?= $(shell date -u +'%Y-%m-%dT%H:%M:%SZ')
-BUILD_CACHE ?= --no-cache
-BUILD_ARGS ?= $(BUILD_CACHE) --build-arg BUILD_DATE=$(BUILD_DATE) --build-arg PY_VERSION=$(PY_VERSION) --build-arg BASE_TAG=$(BASE_TAG)
-IMAGE ?= horneds/muffin:$(TAG)
+PY_VERSION ?= 3.11.3
 PASSWORD ?=
 
 login:
 	echo $(PASSWORD) | docker login -u horneds --password-stdin
 
+BUILD_DATE ?= $(shell date -u +'%Y-%m-%d')
+BUILD_CACHE ?= --no-cache
+BUILD_ARGS ?= $(BUILD_CACHE) --build-arg BUILD_DATE=$(BUILD_DATE) --build-arg PY_VERSION=$(PY_VERSION) --build-arg TAG=$(TAG)
+BUILD_IMAGE ?= muffin
+TAG ?= py311
+IMAGE ?= horneds/${BUILD_IMAGE}:$(TAG)
 build:
 	docker build $(BUILD_ARGS) \
 		-f images/$(BUILD_IMAGE).dockerfile \
 		-t $(IMAGE) $(CURDIR)
 
 build-node:
-	make build BUILD_IMAGE=muffin-node TAG=py311-node
+	make build BUILD_IMAGE=muffin-node TAG=py311
 
 upload: build
 	docker push $(IMAGE)
@@ -35,20 +34,20 @@ py310:
 	make build TAG=py310 PY_VERSION=3.10
 
 py311:
-	make build TAG=py311 PY_VERSION=3.11
+	make build TAG=py311 PY_VERSION=3.11.3
 	docker tag horneds/muffin:py311 horneds/muffin:latest
 
 py38-node:
-	make build TAG=py38-node BASE_TAG=py38 PY_VERSION=3.8 BUILD_IMAGE=muffin-node
+	make build TAG=py38 PY_VERSION=3.8 BUILD_IMAGE=muffin-node
 
 py39-node:
-	make build TAG=py39-node BASE_TAG=py39 PY_VERSION=3.9 BUILD_IMAGE=muffin-node
+	make build TAG=py39 PY_VERSION=3.9 BUILD_IMAGE=muffin-node
 
 py310-node:
-	make build TAG=py310-node BASE_TAG=py310 PY_VERSION=3.10 BUILD_IMAGE=muffin-node
+	make build TAG=py310 PY_VERSION=3.10 BUILD_IMAGE=muffin-node
 
 py311-node:
-	make build TAG=py311-node BASE_TAG=py311 PY_VERSION=3.11 BUILD_IMAGE=muffin-node
+	make build TAG=py311 PY_VERSION=3.11 BUILD_IMAGE=muffin-node
 	docker tag horneds/muffin:py311-node horneds/muffin:latest-node
 
 latest: py311

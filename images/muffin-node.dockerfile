@@ -1,6 +1,6 @@
-ARG BASE_TAG=py311
+ARG PY_VERSION=py311
 
-FROM horneds/muffin:$BASE_TAG as base
+FROM horneds/muffin:$PY_VERSION as base
 
 LABEL maintainer="Kirill Klenov <horneds@gmail.com>"
 
@@ -16,9 +16,9 @@ FROM base as builder
 ARG NODE_VERSION=18.16.0
 
 RUN apt-get update && \
-    apt-get -y install xz-utils && \
-    curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz -O && \
-    tar -xf node-v$NODE_VERSION-linux-x64.tar.xz
+  apt-get -y install xz-utils && \
+  curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz -O && \
+  tar -xf node-v$NODE_VERSION-linux-x64.tar.xz
 
 FROM base as deploy
 
@@ -26,5 +26,5 @@ ARG NODE_VERSION=18.16.0
 
 COPY --from=builder /app/node-v$NODE_VERSION-linux-x64 /opt/node
 RUN ln -sf /opt/node/bin/node /usr/local/bin/node && \
-    ln -sf /opt/node/bin/npm /usr/local/bin/npm && \
-    ln -sf /opt/node/bin/npx /usr/local/bin/npx
+  ln -sf /opt/node/bin/npm /usr/local/bin/npm && \
+  ln -sf /opt/node/bin/npx /usr/local/bin/npx

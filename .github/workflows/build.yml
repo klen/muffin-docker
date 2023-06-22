@@ -23,23 +23,18 @@ jobs:
 
           - tag: py38
             py-version: '3.8'
-            build-image: muffin
 
           - tag: py39
             py-version: '3.9'
-            build-image: muffin
 
           - tag: py310
             py-version: '3.10'
-            build-image: muffin
 
           - tag: py311
             py-version: '3.11'
-            build-image: muffin
 
           - tag: latest
             py-version: '3.11'
-            build-image: muffin
 
     steps:
 
@@ -53,7 +48,7 @@ jobs:
       run: make login PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
 
     - name: Build and upload images
-      run: make upload TAG=${{ matrix.tag }} PY_VERSION=${{ matrix.py-version }} BUILD_IMAGE=${{ matrix.build-image }} BASE_TAG=${{ matrix.base-tag }}
+      run: make upload BUILD_IMAGE=muffin TAG=${{ matrix.tag }} PY_VERSION=${{ matrix.py-version }}
 
   build-node:
     runs-on: ubuntu-latest
@@ -64,30 +59,20 @@ jobs:
       matrix:
         include:
 
-          - tag: py38-node
+          - tag: py38
             py-version: '3.8'
-            build-image: muffin-node
-            base-tag: py38
 
-          - tag: py39-node
+          - tag: py39
             py-version: '3.9'
-            build-image: muffin-node
-            base-tag: py39
 
-          - tag: py310-node
+          - tag: py310
             py-version: '3.10'
-            build-image: muffin-node
-            base-tag: py310
 
-          - tag: py311-node
+          - tag: py311
             py-version: '3.11'
-            build-image: muffin-node
-            base-tag: py311
 
           - tag: latest-node
             py-version: '3.11'
-            build-image: muffin-node
-            base-tag: py311
 
     steps:
 
@@ -101,7 +86,7 @@ jobs:
       run: make login PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
 
     - name: Build and upload images
-      run: make upload TAG=${{ matrix.tag }} PY_VERSION=${{ matrix.py-version }} BUILD_IMAGE=${{ matrix.build-image }} BASE_TAG=${{ matrix.base-tag }}
+      run: make upload BUILD_IMAGE=muffin-node TAG=${{ matrix.tag }} PY_VERSION=${{ matrix.py-version }}
 
   notify:
     runs-on: ubuntu-latest

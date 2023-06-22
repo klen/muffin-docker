@@ -9,12 +9,12 @@ https://hub.docker.com/r/horneds/muffin
 
 [**Docker**](https://www.docker.com/) image with [**Muffin**](https://klen.github.io/muffin/) managed by [**Gunicorn**](https://gunicorn.org/)
 
-## Supported tags
+## Supported images
 
-* [py38](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [py38-node](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
-* [py39](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [py39-node](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
-* [py310](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [py310-node](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
-* [py311, latest](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [py311-node, latest-node](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
+* [muffin:py38](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [muffin-node:py38](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
+* [muffin:py39](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [muffin-node:py39](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
+* [muffin:py310](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [muffin-node:py310](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
+* [muffin:py311, muffin:latest](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [muffin-node:py311, muffin-node:latest](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
 
 ## How to use
 

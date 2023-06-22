@@ -74,3 +74,9 @@ docs:
 	    -e DOCKERHUB_REPO_NAME=muffin \
 	    -e DOCKERHUB_PASSWORD=$(PASSWORD) \
 	    sheogorath/readme-to-dockerhub
+	docker run --rm \
+	    -v $(CURDIR):/data \
+	    -e DOCKERHUB_USERNAME=horneds \
+	    -e DOCKERHUB_REPO_NAME=muffin-node \
+	    -e DOCKERHUB_PASSWORD=$(PASSWORD) \
+	    sheogorath/readme-to-dockerhub

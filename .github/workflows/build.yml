@@ -31,10 +31,10 @@ jobs:
             py-version: '3.10'
 
           - tag: py311
-            py-version: '3.11'
+            py-version: '3.11.3'
 
           - tag: latest
-            py-version: '3.11'
+            py-version: '3.11.3'
 
     steps:
 
@@ -76,7 +76,7 @@ jobs:
       run: make login PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
 
     - name: Build and upload images
-      run: make upload BUILD_IMAGE=muffin-node TAG=${{ matrix.tag }}
+      run: make upload BUILD_IMAGE=muffin-node TAG=${{ matrix.tag }} PY_VERSION=${{ matrix.py-version }}
 
   notify:
     runs-on: ubuntu-latest

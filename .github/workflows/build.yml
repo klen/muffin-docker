@@ -39,25 +39,24 @@ jobs:
     - name: Build and upload images
       run: make upload BUILD_IMAGE=muffin PY_VERSION=${{ matrix.py-version }}
 
-  # build-node:
-  #   runs-on: ubuntu-latest
-  #   needs: build-base
-  #
-  #   strategy:
-  #     fail-fast: true
-  #     matrix:
-  #       tag:
-  #       - py38
-  #       - py39
-  #       - py310
-  #       - py311
-  #       - latest
-  #
-  #   steps:
-  #
-  #   - name: Checkout changes
-  #     uses: actions/checkout@main
-  #
+  build-node:
+    runs-on: ubuntu-latest
+    needs: build-base
+
+    strategy:
+      fail-fast: true
+      matrix:
+        py-version:
+        - "3.8.17"
+        - "3.9.17"
+        - "3.10.12"
+        - "3.11.3"
+
+    steps:
+
+    - name: Checkout changes
+      uses: actions/checkout@main
+
   #   - uses: satackey/action-docker-layer-caching@main
   #     continue-on-error: true
   #

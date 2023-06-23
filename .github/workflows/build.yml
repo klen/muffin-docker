@@ -57,18 +57,41 @@ jobs:
     - name: Checkout changes
       uses: actions/checkout@main
 
-  #   - uses: satackey/action-docker-layer-caching@main
-  #     continue-on-error: true
-  #
-  #   - name: Login to docker hub
-  #     run: make login PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
-  #
-  #   - name: Build and upload images
-  #     run: make upload BUILD_IMAGE=muffin-node TAG=${{ matrix.tag }} PY_VERSION=${{ matrix.py-version }}
+    - uses: satackey/action-docker-layer-caching@main
+      continue-on-error: true
+
+    - name: Login to docker hub
+      run: make login PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
+
+    - name: Build and upload images
+      run: make upload BUILD_IMAGE=muffin-node PY_VERSION=${{ matrix.py-version }}
+
+  mark-latest:
+    runs-on: ubuntu-latest
+    needs: build-node
+
+    strategy:
+      fail-fast: true
+      matrix:
+        py-version:
+        - "3.11.3"
+
+    steps:
+
+    - name: Login to docker hub
+      run: make login PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
+
+    - run: |
+        docker pull horneds/muffin:py${{ matrix.py-version }}
+        docker pull horneds/muffin-node:py${{ matrix.py-version }}
+        docker tag horneds/muffin:py${{ matrix.py-version }} horneds/muffin:latest
+        docker tag horneds/muffin-node:py${{ matrix.py-version }} horneds/muffin-node:latest
+        docker push horneds/muffin:latest
+        docker push horneds/muffin-node:latest
 
   notify:
     runs-on: ubuntu-latest
-    needs: build-node
+    needs: mark-latest
     steps:
 
     - name: Notify Success

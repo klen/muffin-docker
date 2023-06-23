@@ -1,6 +1,6 @@
-ARG TAG=py311
+ARG PY_VERSION=3.11
 
-FROM horneds/muffin:$TAG as base
+FROM horneds/muffin:py$PY_VERSION as base
 
 LABEL maintainer="Kirill Klenov <horneds@gmail.com>"
 
@@ -13,7 +13,7 @@ LABEL org.label-schema.vcs-url="https://github.com/klen/muffin-docker"
 # Install nodejs
 FROM base as builder
 
-ARG NODE_VERSION=18.16.0
+ARG NODE_VERSION=18.16.1
 
 RUN apt-get update && \
   apt-get -y install xz-utils && \
@@ -22,7 +22,7 @@ RUN apt-get update && \
 
 FROM base as deploy
 
-ARG NODE_VERSION=18.16.0
+ARG NODE_VERSION=18.16.1
 
 COPY --from=builder /app/node-v$NODE_VERSION-linux-x64 /opt/node
 RUN ln -sf /opt/node/bin/node /usr/local/bin/node && \

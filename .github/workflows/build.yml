@@ -20,9 +20,9 @@ jobs:
       fail-fast: true
       matrix:
         py-version:
-        - "3.8.17"
-        - "3.9.17"
-        - "3.10.12"
+        - "3.8"
+        - "3.9"
+        - "3.10"
         - "3.11.3"
 
     steps:
@@ -47,9 +47,9 @@ jobs:
       fail-fast: true
       matrix:
         py-version:
-        - "3.8.17"
-        - "3.9.17"
-        - "3.10.12"
+        - "3.8"
+        - "3.9"
+        - "3.10"
         - "3.11.3"
 
     steps:
@@ -79,7 +79,8 @@ jobs:
     steps:
 
     - name: Login to docker hub
-      run: make login PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
+      run: |
+        echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u horneds --password-stdin
 
     - run: |
         docker pull horneds/muffin:py${{ matrix.py-version }}

@@ -1,7 +1,9 @@
 # CHANGELOG.md
 
+## 2023-07-06
+- muffin `0.99.1`
+
 ## 2023-06-22
-- Python 3.11 is binded to `3.11.3`
 - Muffin-Node now is a separate docker repository
 
 ## 2023-06-21

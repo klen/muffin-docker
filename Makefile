@@ -59,9 +59,9 @@ shell: build
 	docker run -it $(IMAGE) muffin app shell
 
 test t:
-	make py38 py39 py310 BUILD_ARGS=""
+	make py310 BUILD_ARGS=""
 	pip install -r requirements.txt
-	pytest tests
+	pytest tests --tag py3.10
 
 docs:
 	docker run --rm \

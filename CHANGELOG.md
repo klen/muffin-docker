@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 2023-07-18
+- gunicorn `21.0.1`
+- uvicorn `0.23.1`
+
 ## 2023-07-06
 - muffin `0.99.1`
 

@@ -3,6 +3,7 @@
 ## 2023-07-18
 - gunicorn `21.0.1`
 - uvicorn `0.23.1`
+- `git` is preinstalled now
 
 ## 2023-07-06
 - muffin `0.99.1`

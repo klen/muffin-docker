@@ -12,9 +12,10 @@ LABEL org.label-schema.vcs-url="https://github.com/klen/muffin-docker"
 
 # Install dependencies
 RUN apt-get update && apt-get -y install --no-install-recommends \
-        curl \
-        make \
-    && rm -rf /var/lib/apt/lists/*
+  curl \
+  git \
+  make \
+  && rm -rf /var/lib/apt/lists/*
 
 # Install python dependencies
 COPY ./requirements-build.txt /requirements-build.txt

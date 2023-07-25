@@ -31,7 +31,9 @@ py310:
 
 py311:
 	make build PY_VERSION=3.11
-	docker tag horneds/muffin:py3.11 horneds/muffin:latest
+
+py311.3:
+	make build PY_VERSION=3.11.3
 
 py38-node:
 	make build PY_VERSION=3.8 BUILD_IMAGE=muffin-node
@@ -44,7 +46,6 @@ py310-node:
 
 py311-node:
 	make build PY_VERSION=3.11.3 BUILD_IMAGE=muffin-node
-	docker tag horneds/muffin-node:py3.11.3 horneds/muffin-node:latest
 
 latest: py311
 latest-node: py311-node

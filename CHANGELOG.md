@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 2023-07-25
+- wheel `0.41.0`
+- gunicorn `21.2.0`
+
 ## 2023-07-18
 - gunicorn `21.0.1`
 - uvicorn `0.23.1`

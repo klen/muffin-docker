@@ -1,5 +1,10 @@
 # CHANGELOG.md
 
+## 2023-08-18
+- wheel `0.41.1`
+- uvicorn `0.23.2`
+- muffin `0.99.3`
+
 ## 2023-07-25
 - wheel `0.41.0`
 - gunicorn `21.2.0`

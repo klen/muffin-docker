@@ -35,6 +35,9 @@ py311:
 py311.3:
 	make build PY_VERSION=3.11.3
 
+py312:
+	make build PY_VERSION=3.12
+
 py38-node:
 	make build PY_VERSION=3.8 BUILD_IMAGE=muffin-node
 

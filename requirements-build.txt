@@ -1,4 +1,4 @@
-wheel               == 0.42.0
-gunicorn            == 21.2.0
-uvicorn[standard]   == 0.27.0
-muffin              >= 0.100.1
+wheel               == 0.43.0
+gunicorn            == 22.0.0
+uvicorn[standard]   == 0.30.0
+muffin              >= 0.101.0

@@ -13,7 +13,7 @@ client = docker.from_env()
 
 
 def pytest_addoption(parser):
-    parser.addoption("--tag", default="py310", help="Python version")
+    parser.addoption("--tag", default="py312", help="Python version")
 
 
 def pytest_generate_tests(metafunc):

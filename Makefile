@@ -20,9 +20,6 @@ build:
 upload: build
 	docker push $(IMAGE)
 
-py38:
-	make build PY_VERSION=3.8
-
 py39:
 	make build PY_VERSION=3.9
 
@@ -38,9 +35,6 @@ py311.3:
 py312:
 	make build PY_VERSION=3.12
 
-py38-node:
-	make build PY_VERSION=3.8 BUILD_IMAGE=muffin-node
-
 py39-node:
 	make build PY_VERSION=3.9 BUILD_IMAGE=muffin-node
 
@@ -50,8 +44,11 @@ py310-node:
 py311-node:
 	make build PY_VERSION=3.11.3 BUILD_IMAGE=muffin-node
 
-latest: py311
-latest-node: py311-node
+py312-node:
+	make build PY_VERSION=3.12 BUILD_IMAGE=muffin-node
+
+latest: py312
+latest-node: py312-node
 
 bash: build
 	docker run -it $(IMAGE) bash
@@ -63,9 +60,9 @@ shell: build
 	docker run -it $(IMAGE) muffin app shell
 
 test t:
-	make py311 BUILD_ARGS=""
+	make py312 BUILD_ARGS=""
 	pip install -r requirements.txt
-	pytest tests --tag py3.11
+	pytest tests --tag py3.12
 
 docs:
 	docker run --rm \

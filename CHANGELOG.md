@@ -1,5 +1,10 @@
 # CHANGELOG.md
 
+## 2024-07-31
+- muffin `0.102.1`
+- muffin:latest uses Python 3.12 by default
+- remove python 3.8 support
+
 ## 2024-05-28
 - muffin `0.101.0`
 - gunicorn `22.0.0`

@@ -12,10 +12,10 @@ jobs:
       fail-fast: true
       matrix:
         tag:
-        - py38
         - py39
         - py310
         - py311
+        - py312
 
     steps:
 

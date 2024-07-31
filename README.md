@@ -12,10 +12,10 @@
 
 ## Supported images
 
-* [muffin:py38](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [muffin-node:py38](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
 * [muffin:py39](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [muffin-node:py39](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
 * [muffin:py310](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [muffin-node:py310](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
-* [muffin:py311, muffin:latest](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [muffin-node:py311, muffin-node:latest](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
+* [muffin:py311](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [muffin-node:py311](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
+* [muffin:py312, muffin:latest](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [muffin-node:py312, muffin-node:latest](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
 
 ## How to use
 

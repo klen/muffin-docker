@@ -62,7 +62,7 @@ shell: build
 test t:
 	make py312 BUILD_ARGS=""
 	pip install -r requirements.txt
-	pytest tests --tag py3.12
+	pytest tests --tag py312
 
 docs:
 	docker run --rm \

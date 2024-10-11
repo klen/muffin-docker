@@ -1,5 +1,10 @@
 # CHANGELOG.md
 
+## 2024-10-11
+- wheel `0.44.0`
+- gunicorn `23.0.0`
+- uvicorn `0.31.1`
+
 ## 2024-07-31
 - muffin `0.102.1`
 - muffin:latest uses Python 3.12 by default

@@ -1,5 +1,8 @@
 # CHANGELOG.md
 
+## 2024-10-17
+- uvicorn `0.32.0`
+
 ## 2024-10-11
 - wheel `0.44.0`
 - gunicorn `23.0.0`

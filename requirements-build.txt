@@ -1,4 +1,4 @@
 wheel               == 0.44.0
 gunicorn            == 23.0.0
-uvicorn[standard]   == 0.31.1
+uvicorn[standard]   == 0.32.0
 muffin              >= 0.102.3

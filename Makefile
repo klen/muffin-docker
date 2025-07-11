@@ -1,7 +1,7 @@
 all:
 	make build
 
-PY_VERSION ?= 3.11.3
+PY_VERSION ?= 3.12
 PASSWORD ?=
 
 login:
@@ -20,23 +20,17 @@ build:
 upload: build
 	docker push $(IMAGE)
 
-py39:
-	make build PY_VERSION=3.9
-
 py310:
 	make build PY_VERSION=3.10
 
 py311:
 	make build PY_VERSION=3.11
 
-py311.3:
-	make build PY_VERSION=3.11.3
-
 py312:
 	make build PY_VERSION=3.12
 
-py39-node:
-	make build PY_VERSION=3.9 BUILD_IMAGE=muffin-node
+py313:
+	make build PY_VERSION=3.13
 
 py310-node:
 	make build PY_VERSION=3.10 BUILD_IMAGE=muffin-node
@@ -46,6 +40,9 @@ py311-node:
 
 py312-node:
 	make build PY_VERSION=3.12 BUILD_IMAGE=muffin-node
+
+py313-node:
+	make build PY_VERSION=3.13 BUILD_IMAGE=muffin-node
 
 latest: py312
 latest-node: py312-node

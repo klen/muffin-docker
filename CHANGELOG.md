@@ -1,5 +1,12 @@
 # CHANGELOG.md
 
+## 2025-07-18
+
+- wheel `0.45.1`
+- gunicorn ` 23.0.0`
+- uvicorn[standard] ` 0.35.0`
+- muffin ` 1.1.3`
+
 ## 2024-10-17
 
 - uvicorn `0.32.0`

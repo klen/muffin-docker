@@ -1,7 +1,7 @@
 all:
 	make build
 
-PY_VERSION ?= 3.12
+PY_VERSION ?= 3.13
 PASSWORD ?=
 
 login:
@@ -44,8 +44,8 @@ py312-node:
 py313-node:
 	make build PY_VERSION=3.13 BUILD_IMAGE=muffin-node
 
-latest: py312
-latest-node: py312-node
+latest: py313
+latest-node: py313-node
 
 bash: build
 	docker run -it $(IMAGE) bash
@@ -57,9 +57,9 @@ shell: build
 	docker run -it $(IMAGE) muffin app shell
 
 test t:
-	make py312 BUILD_ARGS=""
+	make py313 BUILD_ARGS=""
 	pip install -r requirements.txt
-	pytest tests --tag py312
+	pytest tests --tag py313
 
 docs:
 	docker run --rm \

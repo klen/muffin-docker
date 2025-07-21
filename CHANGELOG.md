@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 2025-07-21
+
+- muffin:latest uses Python 3.13 by default
+
 ## 2025-07-18
 
 - wheel `0.45.1`

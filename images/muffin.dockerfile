@@ -1,4 +1,4 @@
-ARG PY_VERSION=3.12
+ARG PY_VERSION=3.13
 
 # Builder stage
 FROM python:$PY_VERSION-slim AS builder

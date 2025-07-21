@@ -23,8 +23,7 @@ LABEL org.label-schema.vcs-url="https://github.com/klen/muffin-docker"
 
 # Install runtime deps only (no compiler)
 RUN apt-get update && apt-get install -y --no-install-recommends \
-  curl \
-  git \
+  curl git make \
   && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /install /usr/local

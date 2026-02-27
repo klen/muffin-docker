@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## 2026-02-27
+
+- muffin:latest uses Python 3.14 by default
+- wheel `0.46.3`
+- gunicorn `25.1.0`
+- uvicorn[standard] `0.41.0`
+- muffin `1.4.2`
+
 ## 2025-07-21
 
 - muffin:latest uses Python 3.13 by default
@@ -7,9 +15,9 @@
 ## 2025-07-18
 
 - wheel `0.45.1`
-- gunicorn ` 23.0.0`
-- uvicorn[standard] ` 0.35.0`
-- muffin ` 1.1.3`
+- gunicorn `23.0.0`
+- uvicorn[standard] `0.35.0`
+- muffin `1.1.3`
 
 ## 2024-10-17
 

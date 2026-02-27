@@ -1,4 +1,4 @@
-ARG PY_VERSION=3.13
+ARG PY_VERSION=3.14
 
 FROM python:$PY_VERSION-slim
 
@@ -22,7 +22,7 @@ COPY ./app /app
 WORKDIR /app
 EXPOSE 80
 
-HEALTHCHECK --interval=1m --timeout=5s --start-period=30s --retries=3 \
+HEALTHCHECK --interval=1m --timeout=5s --start-period=10s --retries=2 \
   CMD curl -f http://localhost || exit 1
 
 CMD ["/start.sh"]

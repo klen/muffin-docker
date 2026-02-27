@@ -5,21 +5,29 @@
 
 # muffin-docker
 
-- Python(muffin, uvicorn, gunicorn): https://hub.docker.com/r/horneds/muffin
-- Same + NodeJS: https://hub.docker.com/r/horneds/muffin-node
+* Python(muffin, uvicorn, gunicorn): <https://hub.docker.com/r/horneds/muffin>
+* Same + NodeJS: <https://hub.docker.com/r/horneds/muffin-node>
 
-[**Docker**](https://www.docker.com/) image with [**Muffin**](https://klen.github.io/muffin/) managed by [**Gunicorn**](https://gunicorn.org/)
+[**Docker**](https://www.docker.com/) image with [**Muffin**](https://klen.github.io/muffin/)
+managed by [**Gunicorn**](https://gunicorn.org/)
 
 ## Supported images
 
-* [muffin:py39](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [muffin-node:py39](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
-* [muffin:py310](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [muffin-node:py310](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
-* [muffin:py311](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [muffin-node:py311](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
-* [muffin:py312, muffin:latest](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile), [muffin-node:py312, muffin-node:latest](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
+* [muffin:py310](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile),
+  [muffin-node:py310](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
+* [muffin:py311](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile),
+  [muffin-node:py311](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
+* [muffin:py312](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile),
+  [muffin-node:py312](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
+* [muffin:py313](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile),
+  [muffin-node:py313](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
+* [muffin:py314, muffin:latest](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile),
+  [muffin-node:py314, muffin-node:latest](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
 
 ## How to use
 
-* You don't need to clone the GitHub repo. You can use this image as a base image for other images, using this in your `Dockerfile`:
+* You don't need to clone the GitHub repo.
+  You can use this image as a base image for other images, using this in your `Dockerfile`:
 
 ```Dockerfile
 FROM horneds/muffin:latest
@@ -45,22 +53,23 @@ docker build -t myimage ./
 docker run -d --name mycontainer -p 80:80 myimage
 ```
 
-You should be able to check it in your Docker container's URL, for example: http://127.0.0.1/ (or equivalent, using your Docker host).
+You should be able to check it in your Docker container's URL, for example: http:
+//127.0.0.1/ (or equivalent, using your Docker host).
 
 ## Dependencies and packages
 
-You will probably also want to add any dependencies for your app and pin them
-to a specific version, probably including Uvicorn and Gunicorn.
+You will probably also want to add any dependencies for your app and pin them to a specific version,
+probably including Uvicorn and Gunicorn.
 
 This way you can make sure your app always works as expected.
 
-You could install packages with `pip` commands in your `Dockerfile`, using a
-`requirements.txt`, or even using [Poetry](https://python-poetry.org/).
+You could install packages with `pip` commands in your `Dockerfile`, using a `requirements.txt`,
+or even using [Poetry](https://python-poetry.org/).
 
 ### Using PIP
 
-Here's a small example of one of the ways you could install your dependencies
-making sure you have a pinned version for each package.
+Here's a small example of one of the ways you could install your dependencies making sure you have a
+pinned version for each package.
 
 Let's say you have a your dependencies in a file `requirements.txt`.
 
@@ -102,9 +111,8 @@ That will:
 
 * **PORT** (`80`) -- Port to bind the server
 
-* **GBIND** (`0.0.0.0:80`) -- Address (host:port) to bind the server inside the
-  container. If the variable is set, the variables `$HOST`, `$PORT` will be
-  ignored.
+* **GBIND** (`0.0.0.0:80`) -- Address (host:port) to bind the server inside the container.
+  If the variable is set, the variables `$HOST`, `$PORT` will be ignored.
 
 * **GLOG_LEVEL** (`info`) -- Gunicorn log level
 

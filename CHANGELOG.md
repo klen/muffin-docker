@@ -1,5 +1,12 @@
 # CHANGELOG.md
 
+## 2026-04-09
+
+- gunicorn `25.3.0`
+- uvicorn[standard] `0.44.0`
+- muffin `1.8.2`
+- fix `py311-node` target to use Python `3.11`
+
 ## 2026-02-27
 
 - muffin:latest uses Python 3.14 by default

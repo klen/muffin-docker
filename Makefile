@@ -39,7 +39,7 @@ py310-node:
 	make build PY_VERSION=3.10 BUILD_IMAGE=muffin-node
 
 py311-node:
-	make build PY_VERSION=3.11.3 BUILD_IMAGE=muffin-node
+	make build PY_VERSION=3.11 BUILD_IMAGE=muffin-node
 
 py312-node:
 	make build PY_VERSION=3.12 BUILD_IMAGE=muffin-node

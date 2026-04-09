@@ -60,7 +60,7 @@ jobs:
         continue-on-error: true
 
       - name: Login to docker hub
-        run: make login PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
+        run: make login PASSWORD=${{ secrets.DOCKER_TOKEN }}
 
       - name: Build and upload images
         run: make upload BUILD_IMAGE=muffin-node PY_VERSION=${{ matrix.py-version }}
@@ -78,7 +78,7 @@ jobs:
     steps:
       - name: Login to docker hub
         run: |
-          echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u horneds --password-stdin
+          echo ${{ secrets.DOCKER_TOKEN }} | docker login -u horneds --password-stdin
 
       - run: |
           docker pull horneds/muffin:py${{ matrix.py-version }}

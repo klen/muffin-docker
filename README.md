@@ -2,14 +2,15 @@
 [![build](https://github.com/klen/muffin-docker/actions/workflows/build.yml/badge.svg)](https://github.com/klen/muffin-docker/actions/workflows/build.yml)
 [![dockerhub](https://img.shields.io/docker/v/horneds/muffin/latest)](https://hub.docker.com/r/horneds/muffin)
 
-
-# muffin-docker
+# Muffin-Docker
 
 * Python(muffin, uvicorn, gunicorn): <https://hub.docker.com/r/horneds/muffin>
 * Same + NodeJS: <https://hub.docker.com/r/horneds/muffin-node>
 
 [**Docker**](https://www.docker.com/) image with [**Muffin**](https://klen.github.io/muffin/)
 managed by [**Gunicorn**](https://gunicorn.org/)
+
+`latest` currently points to `py314`.
 
 ## Supported images
 
@@ -26,6 +27,18 @@ managed by [**Gunicorn**](https://gunicorn.org/)
 
 ## How to use
 
+### Quick start
+
+Run the image directly (without building your own image first):
+
+```bash
+docker run -d --name muffin -p 80:80 horneds/muffin:latest
+```
+
+Then open: <http://127.0.0.1/>
+
+### Use as a base image
+
 * You don't need to clone the GitHub repo.
   You can use this image as a base image for other images, using this in your `Dockerfile`:
 
@@ -35,9 +48,12 @@ FROM horneds/muffin:latest
 COPY ./app /app
 ```
 
-It will expect a file at `/app/app.py`.
+By default the startup script will auto-detect your app module in this order:
 
-Or otherwise a file at `/app/main.py`.
+1. `/app/app.py`
+2. `/app/main.py`
+3. `/app/app/app.py`
+4. `/app/app/main.py`
 
 And will expect it to contain a variable `app` with your "ASGI" application.
 
@@ -53,13 +69,15 @@ docker build -t myimage ./
 docker run -d --name mycontainer -p 80:80 myimage
 ```
 
-You should be able to check it in your Docker container's URL, for example: http:
-//127.0.0.1/ (or equivalent, using your Docker host).
+You should be able to check it in your Docker container's URL, for example:
+<http://127.0.0.1/> (or equivalent, using your Docker host).
 
 ## Dependencies and packages
 
-You will probably also want to add any dependencies for your app and pin them to a specific version,
-probably including Uvicorn and Gunicorn.
+You will probably also want to add dependencies for your app and pin them to specific versions.
+
+`muffin` images already include Gunicorn and Uvicorn worker support.
+Add Uvicorn/Gunicorn only if you need to pin/override versions for your own image.
 
 This way you can make sure your app always works as expected.
 
@@ -71,7 +89,7 @@ or even using [Poetry](https://python-poetry.org/).
 Here's a small example of one of the ways you could install your dependencies making sure you have a
 pinned version for each package.
 
-Let's say you have a your dependencies in a file `requirements.txt`.
+Let's say you have your dependencies in a file `requirements.txt`.
 
 Then you could have a `Dockerfile` like:
 
@@ -95,11 +113,16 @@ That will:
 
 ### Environment variables
 
+Use `APP_MODULE` for explicit control, or `MODULE_NAME` + `VARIABLE_NAME` for convenience.
+
 * **MODULE_NAME** (`app`, `main`, `app.app`, `app.main`) -- python module that
   contains Muffin application
 
 * **VARIABLE_NAME** (`app`) -- The variable inside of the Python module that
   contains the Muffin application
+
+* **APP_MODULE** (`<MODULE_NAME>:<VARIABLE_NAME>`) -- full ASGI app import path.
+  If set, this value is used directly.
 
 * **SETUP_SCRIPT** -- Optional setup script to run before start gunicorn
 

@@ -7,15 +7,13 @@ on:
     types: [completed]
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     if: github.event.workflow_run.conclusion == 'success'
 
     steps:
+      - name: Checkout changes
+        uses: actions/checkout@main
 
-    - name: Checkout changes
-      uses: actions/checkout@main
-
-    - name: Upload README to docker hub
-      run: make docs PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: Upload README to docker hub
+        run: make docs PASSWORD=${{ secrets.DOCKER_TOKEN }}

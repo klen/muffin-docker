@@ -26,7 +26,7 @@
 - CI test matrix builds tags `py311`..
   `py314` and runs `pytest tests --tag <tag>` (`.github/workflows/tests.yml`).
 - Publish workflows (`build.yml`,
-  `docs.yml`) run only after `tests` succeeds on `master` (`workflow_run`).
+  `docs.yml`) run only after `tests` succeeds on `main` (`workflow_run`).
 - `make upload` requires Docker Hub auth via `make login PASSWORD=...`.
 
 ## Runtime/entrypoint behavior

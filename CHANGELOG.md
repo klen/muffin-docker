@@ -1,5 +1,10 @@
 # CHANGELOG.md
 
+## 2026-06-26
+
+- muffin `>= 2.0.0`
+- drop Python 3.10 support (muffin 2.0.0 requires 3.11+)
+
 ## 2026-06-25
 
 - wheel `0.47.0`

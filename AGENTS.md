@@ -41,3 +41,8 @@
 
 - `muffin-node` builds `FROM horneds/muffin:py$PY_VERSION`;
   local node image builds may pull a remote base if that tag is not present locally.
+
+## Changelog
+
+- Always update `CHANGELOG.md` when making user-facing changes (dependency bumps, version drops, etc.).
+- Keep entries in reverse chronological order with date headings.

@@ -20,9 +20,6 @@ build:
 upload: build
 	docker push $(IMAGE)
 
-py310:
-	make build PY_VERSION=3.10
-
 py311:
 	make build PY_VERSION=3.11
 
@@ -34,9 +31,6 @@ py313:
 
 py314:
 	make build PY_VERSION=3.14
-
-py310-node:
-	make build PY_VERSION=3.10 BUILD_IMAGE=muffin-node
 
 py311-node:
 	make build PY_VERSION=3.11 BUILD_IMAGE=muffin-node

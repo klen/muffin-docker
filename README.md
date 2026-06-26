@@ -14,8 +14,6 @@ managed by [**Gunicorn**](https://gunicorn.org/)
 
 ## Supported images
 
-* [muffin:py310](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile),
-  [muffin-node:py310](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
 * [muffin:py311](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile),
   [muffin-node:py311](https://github.com/klen/muffin-docker/blob/master/images/muffin-node.dockerfile)
 * [muffin:py312](https://github.com/klen/muffin-docker/blob/master/images/muffin.dockerfile),

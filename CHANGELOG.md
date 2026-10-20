@@ -3,6 +3,11 @@
 ## 2026-10-20
 
 - add Python 3.15 images; `latest` now points to `py315`
+- wheel `0.48.0`
+- gunicorn `26.2.0`
+- uvicorn[standard] `0.54.0`
+- muffin `>= 3.0.0`
+- node `22.23.3` (was 18.16.1, EOL)
 
 ## 2026-06-26
 

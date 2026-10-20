@@ -23,6 +23,7 @@ jobs:
           - "3.12"
           - "3.13"
           - "3.14"
+          - "3.15"
 
     steps:
       - name: Checkout changes
@@ -49,6 +50,7 @@ jobs:
           - "3.12"
           - "3.13"
           - "3.14"
+          - "3.15"
 
     steps:
       - name: Checkout changes
@@ -72,6 +74,7 @@ jobs:
       matrix:
         py-version:
           - "3.14"
+          - "3.15"
 
     steps:
       - name: Login to docker hub

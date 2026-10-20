@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 2026-10-20
+
+- add Python 3.15 images; `latest` now points to `py315`
+
 ## 2026-06-26
 
 - muffin `>= 2.0.0`

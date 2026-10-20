@@ -10,7 +10,7 @@
 [**Docker**](https://www.docker.com/) image with [**Muffin**](https://klen.github.io/muffin/)
 managed by [**Gunicorn**](https://gunicorn.org/)
 
-`latest` currently points to `py314`.
+`latest` currently points to `py315`.
 
 ## Supported images
 
@@ -20,8 +20,10 @@ managed by [**Gunicorn**](https://gunicorn.org/)
   [muffin-node:py312](https://github.com/klen/muffin-docker/blob/main/images/muffin-node.dockerfile)
 * [muffin:py313](https://github.com/klen/muffin-docker/blob/main/images/muffin.dockerfile),
   [muffin-node:py313](https://github.com/klen/muffin-docker/blob/main/images/muffin-node.dockerfile)
-* [muffin:py314, muffin:latest](https://github.com/klen/muffin-docker/blob/main/images/muffin.dockerfile),
-  [muffin-node:py314, muffin-node:latest](https://github.com/klen/muffin-docker/blob/main/images/muffin-node.dockerfile)
+* [muffin:py314](https://github.com/klen/muffin-docker/blob/main/images/muffin.dockerfile),
+  [muffin-node:py314](https://github.com/klen/muffin-docker/blob/main/images/muffin-node.dockerfile)
+* [muffin:py315, muffin:latest](https://github.com/klen/muffin-docker/blob/main/images/muffin.dockerfile),
+  [muffin-node:py315, muffin-node:latest](https://github.com/klen/muffin-docker/blob/main/images/muffin-node.dockerfile)
 
 ## How to use
 

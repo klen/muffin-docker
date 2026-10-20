@@ -1,4 +1,4 @@
-ARG PY_VERSION=3.14
+ARG PY_VERSION=3.15
 
 FROM horneds/muffin:py$PY_VERSION as base
 

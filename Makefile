@@ -1,7 +1,7 @@
 all:
 	make build
 
-PY_VERSION ?= 3.14
+PY_VERSION ?= 3.15
 PASSWORD ?=
 
 login:
@@ -32,6 +32,9 @@ py313:
 py314:
 	make build PY_VERSION=3.14
 
+py315:
+	make build PY_VERSION=3.15
+
 py311-node:
 	make build PY_VERSION=3.11 BUILD_IMAGE=muffin-node
 
@@ -44,8 +47,11 @@ py313-node:
 py314-node:
 	make build PY_VERSION=3.14 BUILD_IMAGE=muffin-node
 
-latest: py314
-latest-node: py314-node
+py315-node:
+	make build PY_VERSION=3.15 BUILD_IMAGE=muffin-node
+
+latest: py315
+latest-node: py315-node
 
 bash: build
 	docker run -it $(IMAGE) bash
@@ -57,9 +63,9 @@ shell: build
 	docker run -it $(IMAGE) muffin app shell
 
 test t:
-	make py314 BUILD_ARGS=""
+	make py315 BUILD_ARGS=""
 	pip install -r requirements.txt
-	pytest tests --tag py314
+	pytest tests --tag py315
 
 docs:
 	docker run --rm \

@@ -15,6 +15,7 @@ jobs:
           - py312
           - py313
           - py314
+          - py315
 
     steps:
       - name: Checkout changes

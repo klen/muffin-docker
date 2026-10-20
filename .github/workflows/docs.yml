@@ -1,5 +1,8 @@
 name: docs
 
+permissions:
+  contents: read
+
 on:
   workflow_run:
     workflows: [tests]
@@ -13,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout changes
-        uses: actions/checkout@main
+        uses: actions/checkout@v7
 
       - name: Upload README to docker hub
         run: make docs PASSWORD=${{ secrets.DOCKER_TOKEN }}

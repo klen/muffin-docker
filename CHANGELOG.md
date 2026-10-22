@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 2026-10-22
+
+- node `22.23.4` (was 22.23.3)
+
 ## 2026-10-20
 
 - add Python 3.15 images; `latest` now points to `py315`

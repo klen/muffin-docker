@@ -19,7 +19,7 @@ export SETUP_SCRIPT=${SETUP_SCRIPT:-"/app/setup.sh"}
 export HOST=${HOST:-"0.0.0.0"}
 export PORT=${PORT:-"80"}
 export GWORKER_CLASS=${GWORKER_CLASS:-"uvicorn.workers.UvicornWorker"}
-export GWORKERS=${GWORKERS:-`nproc --all`}
+export GWORKERS=${GWORKERS:-`nproc`}
 export GBIND=${GBIND:-"$HOST:$PORT"}
 export GLOG_LEVEL=${GLOG_LEVEL:-"info"}
 
